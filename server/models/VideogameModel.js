@@ -33,5 +33,3 @@ const VideogameSchema = new Schema ({
 }, {timestamps: true})
 
 module.exports = mongoose.model('Videogame', VideogameSchema)
-
-Videogame.find()

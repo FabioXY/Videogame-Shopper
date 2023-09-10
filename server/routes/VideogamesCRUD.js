@@ -12,7 +12,7 @@ const {
 router.get("/", getVideogames);
 
 //GET a single Videogame
-router - get("/:id", getVideogame);
+router.get("/:id", getVideogame);
 
 // POST a new Videogame
 router.post("/", createVideogame);

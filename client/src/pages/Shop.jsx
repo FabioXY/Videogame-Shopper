@@ -1,12 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import VideogameDetails from "../component/VideogameDetails"
 
 function Shop() {
   const [videogames, setVideogames] = useState(null);
 
   useEffect(() => {
     const fetchVideogames = async () => {
-      const response = await fetch("http://localhost:5173/shop");
+      const response = await fetch("/api/shop");
       const json = await response.json();
       if (response.ok) {
         setVideogames(json);
@@ -20,9 +21,7 @@ function Shop() {
       {videogames &&
         videogames.map((videogame) => (
           <p>
-            {" "}
-            key={videogame._id}
-            {videogame.title}
+            <VideogameDetails key={videogame._id} videogame={videogame} / >
           </p>
         ))}
     </div>

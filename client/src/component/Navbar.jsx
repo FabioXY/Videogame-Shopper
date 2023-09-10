@@ -10,7 +10,7 @@ function Navbar() {
         <Link to="/contacts">Contacts</Link>
         <Link to="/login">Login</Link>
         <Link to="/cart">Cart</Link>
-        <Link to="/admin-panel">Admin Panel</Link>
+        <Link to="/adminPanel">Admin Panel</Link>
       </div>
     </section>
   );

@@ -1,31 +1,32 @@
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
 
-const express = require('express')
-const mongoose = require('mongoose')
-const videogameRoutes = require(' ./routes/videogames')
+const express = require("express");
+const mongoose = require("mongoose");
+const videogamesRoutes = require("./routes/VideogamesCRUD");
 
-const app = express ()
+const app = express();
 
 // middleware
-app.use (express. json ())
+app.use(express.json());
 
-app.use((reg, res, next) => {
-console. log(req.path, req.method)
-next ()
-})
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
 
 // routes
-app. use("/api/videogames", videogameRoutes)
+app.use("/api/shop", videogamesRoutes);
 
 // connect to db
-mongoose.connect (process.env.MONGO_URI)
- then (() => {
-// listen for requests
-app.listen (process.env.PORT, () => {
-console. log('listening on port', process.env.PORT)
- })
-})
-.catch((error) => {
-console.log(error)
-})
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    // listen for requests
+    app.listen(process.env.PORT, () => {
+      console.log("listening on port", process.env.PORT);
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });

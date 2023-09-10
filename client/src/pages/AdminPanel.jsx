@@ -1,9 +1,13 @@
 import React from 'react'
+import VideogameForm from '../component/VideogameForm'
 
 function AdminPanel() {
   return (
     <div>
-        AdminPanel</div>
+        AdminPanel
+        <VideogameForm />
+        </div>
+
   )
 }
 
