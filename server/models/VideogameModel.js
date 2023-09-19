@@ -1,35 +1,39 @@
-const mongoose = require ('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const VideogameSchema = new Schema ({
+const VideogameSchema = new Schema(
+  {
     title: {
-        type : String,
-        required: true
+      type: String,
+      required: true,
+      unique: true,
     },
     platform: {
-        type: String,
-        required : true
+      type: String,
+      required: true,
     },
-    PEGI : {
-        type: Number,
-        required: true
+    PEGI: {
+      type: Number,
+      required: true,
     },
     price: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
     discount: {
-        type: Number,
-        required: false
+      type: Number,
+      required: false,
     },
     genere: {
-        type: String,
-        required: false
+      type: String,
+      required: false,
     },
     description: {
-        type: String,
-        required: false
-    }
-}, {timestamps: true})
+      type: String,
+      required: false,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('Videogame', VideogameSchema)
+module.exports = mongoose.model("Videogame", VideogameSchema);

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useVideogamesContext } from "../hooks/useVideogamesContext";
 
 const VideogameForm = () => {
+  const {dispatch} = useVideogamesContext()
   const [title, setTitle] = useState("");
   const [platform, setPlatform] = useState("");
   const [PEGI, setPEGI] = useState("");
@@ -10,23 +12,25 @@ const VideogameForm = () => {
   const [description, setDescription] = useState("");
   const [error, setError] = useState(null);
 
+  const urlBe = 'http://localhost:5174/'
+
   const handleSubmit = async (e) => {
-    e.preventDefaut()
+    e.preventDefault()
 
     const videogame = {title, platform, PEGI, price, discount, genere, description}
 
-    const response = await fetch('/api/adminPanel' , {
+    const response = await fetch(urlBe + 'adminPanel' , {
         method: 'POST',
         body: JSON.stringify(videogame),
         headers: {
             'Content-Type' : 'application/json'
         }
     })
-    const json = await response.json()
+   const json = await response.json()
 
     if(!response.ok){
       setError(json.error)
-    }
+    } 
     if (response.ok){
         setDescription("")
         setDiscount("")
@@ -36,6 +40,7 @@ const VideogameForm = () => {
         setTitle("")
         setError(null)
         console.log('new videogame added', json)
+        dispatch({type: 'CREATE_VIDEOGAME', payload: json})
     }
   }
 

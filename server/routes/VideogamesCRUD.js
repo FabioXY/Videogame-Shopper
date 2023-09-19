@@ -1,3 +1,5 @@
+
+
 const express = require("express");
 const router = express.Router();
 const {
@@ -6,16 +8,17 @@ const {
   getVideogames,
   deleteVideogame,
   updateVideogame
-} = require("../controllers/videogameController");
+} = require("../controller/videogameController");
+
 
 // GET all Videogames
-router.get("/", getVideogames);
+router.get("/", getVideogames),
 
 //GET a single Videogame
 router.get("/:id", getVideogame);
 
 // POST a new Videogame
-router.post("/", createVideogame);
+router.post("/adminPanel", createVideogame);
 
 // DELETE a Videogame
 router.delete("/:id", deleteVideogame);

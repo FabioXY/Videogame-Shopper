@@ -1,18 +1,17 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import VideogameDetails from "../component/VideogameDetails"
+import React, { useEffect } from "react";
+import VideogameDetails from "../component/VideogameDetails";
+import { useVideogamesContext } from "../hooks/useVideogamesContext";
 
 function Shop() {
-  const [videogames, setVideogames] = useState(null);
+  const {videogames, dispatch} = useVideogamesContext()
 
   useEffect(() => {
     const fetchVideogames = async () => {
-      const response = await fetch("/api/shop");
-      const json = await response.json();
-      if (response.ok) {
-        setVideogames(json);
-      }
-    };
+        const response = await fetch("http://localhost:5174/");
+        const json = await response.json();
+        if (response.ok) {
+          dispatch({type: 'SET_VIDEOGAMES', payload: json})
+        }}
     fetchVideogames();
   }, []);
 
@@ -20,9 +19,7 @@ function Shop() {
     <div className="videogames">
       {videogames &&
         videogames.map((videogame) => (
-          <p>
-            <VideogameDetails key={videogame._id} videogame={videogame} / >
-          </p>
+          <VideogameDetails key={videogame._id} videogame={videogame} />
         ))}
     </div>
   );
