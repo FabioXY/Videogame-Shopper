@@ -25,6 +25,8 @@ function Login() {
 
   return (
     <>
+    <div className=" flex">
+      <div className="">
       <div>Login</div>
       <div>{lg && <div>{lg}</div>}</div>
       <form action="POST">
@@ -44,8 +46,9 @@ function Login() {
         />
         <input type="submit" onClick={submit} />
       </form>
-      <p>OR</p>
-      <Link to="/Signup">Signup</Link>
+      <p>Username: ciao Password: ciao</p>
+      </div>
+      </div>
     </>
   );
 }

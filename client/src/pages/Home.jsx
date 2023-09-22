@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -10,9 +11,11 @@ function Home() {
             Videogame Shopper
           </h1>
           <div className="flex mt-24 gap-28">
+          <Link to={'/shop'}>
             <button className="text-3xl bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 py-4 px-7 rounded-2xl font-semibold text-purple-200">
               Shop
             </button>
+            </Link>
             <button className="text-3xl text-purple-200 font-semibold py-7 bg-gradient-to-r from-fuchsia-600 to-pink-600 px-7 rounded-2xl">
               Login
             </button>

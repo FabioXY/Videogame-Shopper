@@ -20,6 +20,10 @@ const VideogameSchema = new Schema(
       type: Number,
       required: true,
     },
+    image:{
+      type: String ,
+      required : false
+    },
     discount: {
       type: Number,
       required: false,
