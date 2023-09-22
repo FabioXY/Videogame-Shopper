@@ -4,7 +4,6 @@ import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
 import ProductDetails from "./pages/ProductDetails";
 import Contacts from "./pages/Contacts";
-import Cart from "./component/Cart";
 import Login from "./component/Login";
 import Signup from "./component/SignUp";
 import Header from "./component/Header";
@@ -21,7 +20,6 @@ function App() {
             <Route path="/adminPanel" element={<AdminPanel />} />
             <Route path="/productDetails/:id" element={<ProductDetails />} />
             <Route path="/contacts" element={<Contacts />} />
-            <Route path="/cart" element={<Cart />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/shop" element={<Shop />} />

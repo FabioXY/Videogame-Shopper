@@ -5,13 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      retroFont : ['Press Start 2P', 'cursive']
-    },
     extend: {
       backgroundImage: {
         homeBg: "url('./images/bghome.png')",
+        contactsBg: "url('./images/bgcont.jpg')",
+      },
+      fontFamily: {
+        retroFont : ['Press Start 2P', 'cursive']
+      },
     },
   },
   plugins: [],
-}}
+}

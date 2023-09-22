@@ -45,59 +45,89 @@ const VideogameForm = () => {
   }
 
   return (
+    <>
+    <div className=" flex justify-center">
     <form onSubmit={handleSubmit}>
-      <h1>Add new Videogame</h1>
-      <h3>Videogame Title</h3>
+      <h1 className=" text-2xl font-semibold py-4 bg-gradient-to-r from-purple-400 to-pink-600 px-5 rounded-xl mb-6 mt-7 ">Add Videogame Fields:</h1>
+      <div className="flex-col ml-11">
+      <div>
+      <h3 className=" py-2 font-semibold text-xl">Videogame Title</h3>
       <input
+      placeholder="es: Super Mario"
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
+        className="ml-3"
       />
-
-      <h3>Add videogame platfrom:</h3>
+      </div>
+      <div>
+      <h3 className=" py-2 font-semibold text-xl">Add videogame platfrom:</h3>
       <input
+      placeholder="es: PS5 , Nintendo Switch"
         type="text"
         onChange={(e) => setPlatform(e.target.value)}
         value={platform}
+        className="ml-3"
       />
-
-      <h3>Add PEGI age:</h3>
+      </div>
+     <div>
+      <h3 className=" py-2 font-semibold text-xl">Add PEGI age:</h3>
       <input
+        placeholder="es: 18"
         type="number"
         onChange={(e) => setPEGI(e.target.value)}
         value={PEGI}
+        className="ml-3"
       />
-
-      <h3>Add videogame Price:</h3>
+      </div>
+      <div>
+      <h3 className=" py-2 font-semibold text-xl">Add videogame Price:</h3>
       <input
+        placeholder="es : 69,99€"
         type="number"
         onChange={(e) => setPrice(e.target.value)}
         value={price}
+        className="ml-3"
       />
-
-      <h3>Add % of Discount</h3>
+      </div>
+      <div>
+      <h3 className=" py-2 font-semibold text-xl">Add % of Discount</h3>
       <input
+        placeholder="es: 20%"
         type="number"
         onChange={(e) => setDiscount(e.target.value)}
         value={discount}
+        className="ml-3"
       />
-
-      <h3>Add Videogame Genere</h3>
+      </div>
+       <div>
+      <h3 className=" py-2 font-semibold text-xl">Add Videogame Genere</h3>
       <input
+      placeholder="es : RPG , Action, FPS, TPS"
         type="text"
         onChange={(e) => setGenere(e.target.value)}
         value={genere}
+        className="ml-3"
       />
-
-      <h3>Videogame Description</h3>
+      </div>
+       <div>
+      <h3 className=" py-2 font-semibold text-xl">Videogame Description</h3>
       <input
+      placeholder="es : Super Mario is a platform game series ecc.. "
         type="text"
         onChange={(e) => setDescription(e.target.value)}
         value={description}
+        className="ml-3"
       />
-      <button>Add Videogame</button>
+      </div>
+      </div>
+      <div>
+      <button className="py-3 ml-20 my-6 rounded-full font-semibold px-4 bg text-xl  bg-purple-500">Submit</button>
       {error && <div className="error">{error}</div> }
+      </div>
     </form>
+    </div>
+    </>
   );
 };
 

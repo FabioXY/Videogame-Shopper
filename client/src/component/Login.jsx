@@ -1,17 +1,23 @@
 import React from "react";
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
+  const [lg, setLg] = useState(false);
 
   async function submit(e) {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost5173/");
-      nickname, password;
+      const res = await axios.post("http://localhost:5174/ope/login", {
+        nickname,
+        password,
+      });
+      console.log(res.data);
+      setLg(res.data.message);
     } catch (e) {
       console.log(e);
     }
@@ -20,6 +26,7 @@ function Login() {
   return (
     <>
       <div>Login</div>
+      <div>{lg && <div>{lg}</div>}</div>
       <form action="POST">
         <input
           type="Nickname"
